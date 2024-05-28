@@ -1,2 +1,20 @@
-# app_example-cypress_workshop
-Example of web app for Cypress workshop
+# Simple web app example
+
+## Installation
+```bash
+yarn install
+```
+
+## Build
+```bash
+yarn build
+```
+
+## Run app
+To run development server
+```bash
+yarn start
+```
+App will be accessible under http://localhost:3000/
+
+## Testing
