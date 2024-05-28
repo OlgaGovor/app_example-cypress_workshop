@@ -2,18 +2,18 @@
 
 ## Installation
 ```bash
-yarn install
+npm install
 ```
 
 ## Build
 ```bash
-yarn build
+npm run build
 ```
 
 ## Run app
 To run development server
 ```bash
-yarn start
+npm run start
 ```
 App will be accessible under http://localhost:3000/
 
