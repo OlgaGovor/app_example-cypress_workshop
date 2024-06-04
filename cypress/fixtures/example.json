@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Miss",
+        "first": "Melissa",
+        "last": "Bailey"
+      },
+      "location": {
+        "street": {
+          "number": 4790,
+          "name": "New Road"
+        },
+        "city": "Maynooth",
+        "state": "Waterford",
+        "country": "Ireland",
+        "postcode": 39607,
+        "coordinates": {
+          "latitude": "-1.6776",
+          "longitude": "38.7693"
+        },
+        "timezone": {
+          "offset": "-3:00",
+          "description": "Brazil, Buenos Aires, Georgetown"
+        }
+      },
+      "email": "melissa.bailey@example.com",
+      "login": {
+        "uuid": "b005779e-5829-442e-a340-a92a0f26f3e8",
+        "username": "beautifulmouse650",
+        "password": "cyclones",
+        "salt": "HkLsi63m",
+        "md5": "be511e9d78a234d52e428d3cf146824a",
+        "sha1": "3807341bf29d3566f7c31cea69cbed5af7c33a51",
+        "sha256": "ed6b8336c2ad67da6332dd252c4fe4f8125fd6d41a41fa5bed0b636883d7a74d"
+      },
+      "dob": {
+        "date": "1954-07-27T12:35:51.593Z",
+        "age": 69
+      },
+      "registered": {
+        "date": "2015-12-02T15:47:41.403Z",
+        "age": 8
+      },
+      "phone": "071-139-2952",
+      "cell": "081-265-8637",
+      "id": {
+        "name": "PPS",
+        "value": "5267910T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/5.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/5.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/5.jpg"
+      },
+      "nat": "IE"
+    }
+  ],
+  "info": {
+    "seed": "c80b986ef5c2b3e6",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
