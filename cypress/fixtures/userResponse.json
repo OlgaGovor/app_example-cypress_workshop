@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Hannah",
+        "last": "Tremblay"
+      },
+      "location": {
+        "street": {
+          "number": 6188,
+          "name": "Regent Ave"
+        },
+        "city": "Fauquier",
+        "state": "Prince Edward Island",
+        "country": "Canada",
+        "postcode": "L5I 5U7",
+        "coordinates": {
+          "latitude": "-65.6171",
+          "longitude": "13.1933"
+        },
+        "timezone": {
+          "offset": "-7:00",
+          "description": "Mountain Time (US & Canada)"
+        }
+      },
+      "email": "hannah.tremblay@example.com",
+      "login": {
+        "uuid": "8e939c5c-dff3-40ec-b1f4-346364da0ab6",
+        "username": "crazyduck380",
+        "password": "winter",
+        "salt": "88md3V8h",
+        "md5": "e3d921120d60883fa415b8cf62e33551",
+        "sha1": "b9b0cfbf97ade845f2436fbbf621e4fc1c411066",
+        "sha256": "9d8447ea2317cdecad85fa50a5bcf254c7a686c9e239cf471dec53af7b8f17d7"
+      },
+      "dob": {
+        "date": "1966-06-13T16:59:11.757Z",
+        "age": 57
+      },
+      "registered": {
+        "date": "2006-05-23T02:17:28.376Z",
+        "age": 18
+      },
+      "phone": "G86 A67-4318",
+      "cell": "G37 X72-0363",
+      "id": {
+        "name": "SIN",
+        "value": "911959062"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/39.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/39.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
+      },
+      "nat": "CA"
+    }
+  ],
+  "info": {
+    "seed": "09ea73665a898e07",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
