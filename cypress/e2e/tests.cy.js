@@ -1,9 +1,9 @@
 import userResponse from "../fixtures/userResponse.json";
-import ObjectPage from "../pages/objectsPage.cy";
+import PageObject from "../pages/pageObject.cy";
 
-const objectPage = new ObjectPage();
+const pageObject = new PageObject();
 
-describe("App example - Cypress workshop", () => {
+describe("Basic test suite", () => {
   beforeEach(() => {
     cy.visit("/");
   });
@@ -27,82 +27,90 @@ describe("App example - Cypress workshop", () => {
         dateOfBirth.getUTCFullYear();
 
       //generate new user
-      cy.get("button").contains("Generate new user").click();
+      pageObject.generateNewUserButton.click();
 
       //wait for the response to be returned
       cy.wait("@user");
 
       //check if the elements are visible
-      cy.get("#user_title").should("have.text", "Hi, My name is");
-      cy.get("#user_value").should("have.text", name);
-      cy.get("#user_email").should(
+      pageObject.userTitle.should("have.text", "Hi, My name is");
+      pageObject.userValue.should("have.text", name);
+      pageObject.userEmail.should(
         "have.text",
         `Email: ${userResponse.results[0].email}`
       );
-      cy.get("#user_birthday").should(
+      pageObject.userBirthday.should(
         "have.text",
         `Date of birth: ${formattedDateOfBirth}`
       );
-      cy.get("#user_address").should(
+      pageObject.userAddress.should(
         "have.text",
         `Address: ${userResponse.results[0].location.street.number} ${userResponse.results[0].location.street.name}`
       );
-      cy.get("#user_phone").should(
+      pageObject.userPhone.should(
         "have.text",
         `Phone number: ${userResponse.results[0].cell}`
       );
-      cy.get("#user_password").should(
+      pageObject.userPassword.should(
         "have.text",
         `Password: ${userResponse.results[0].login.password}`
       );
-      cy.get("#user_gender").should(
+      pageObject.userGender.should(
         "have.text",
         `Gender: ${userResponse.results[0].gender}`
       );
 
       //check if an image has successfully loaded on the page
-      cy.get('[alt="question mark"]')
+      pageObject.image
         .should("be.visible")
         .and("have.prop", "naturalWidth")
         .should("be.greaterThan", 0);
 
       //check if the image source is the same as the one in the userResponse
-      cy.get('[alt="question mark"]')
+      pageObject.image
         .should("have.attr", "src")
         .and("equal", userResponse.results[0].picture.large);
     });
 
     it("Validate action buttons", () => {
-      cy.get("button")
-        .contains("Generate new user")
-        .should("be.visible")
-        .and("be.enabled");
-      cy.get("button")
-        .contains("Generate new female")
-        .should("be.visible")
-        .and("be.enabled");
-      cy.get("button")
-        .contains("Generate new male")
-        .should("be.visible")
-        .and("be.enabled");
-      cy.get("button").contains("Clear").should("be.visible").and("be.enabled");
+      pageObject.generateNewUserButton.should("be.visible").and("be.enabled");
+      pageObject.generateNewFemaleButton.should("be.visible").and("be.enabled");
+      pageObject.generateNewMaleButton.should("be.visible").and("be.enabled");
+      pageObject.clearButton.should("be.visible").and("be.enabled");
     });
 
     it("Validate default page", () => {
-      cy.get('[alt="question mark"]')
+      pageObject.image
         .should("have.attr", "src")
         .and(
           "equal",
           "https://upload.wikimedia.org/wikipedia/commons/3/35/Orange_question_mark.svg"
         );
-      objectPage.validateDefaultData();
+      pageObject.validateDefaultData();
     });
 
     it("Generate a new user, clear and validate", () => {
-      cy.get("button").contains("Generate new user").click();
+      pageObject.generateNewUserButton.click();
       cy.wait("@user");
-      cy.get("button").contains("Clear").click();
-      objectPage.validateDefaultData();
+      pageObject.clearButton.click();
+      //there is a bug -> after clicking on the clear button gender data is not removed
+      pageObject.validateDefaultData();
+    });
+  });
+
+  context("Mock response with status 400", () => {
+    it("Validate API respose: 400", () => {
+      cy.intercept("GET", "https://randomuser.me/api/", (req) => {
+        req.reply({
+          statusCode: 400,
+          fixture: "userResponse.json",
+        });
+      }).as("error");
+
+      pageObject.generateNewUserButton.click();
+      cy.wait("@error");
+
+      // dev should catch error  - after click on Generate new user we don't get any info about 400, after click nothing changed
     });
   });
 });
